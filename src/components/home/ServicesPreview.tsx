@@ -1,11 +1,14 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { motion } from "framer-motion";
 import { services } from "@/data/services";
 import { Button } from "@/components/ui/Button";
+import { useTranslations } from "next-intl";
 
 export function ServicesPreview() {
+  const t = useTranslations("services_preview");
+
   return (
     <section className="py-24 md:py-32 bg-warm-ivory">
       <div className="container mx-auto px-6">
@@ -17,7 +20,7 @@ export function ServicesPreview() {
             transition={{ duration: 0.6 }}
             className="font-serif text-4xl md:text-5xl text-deep-brown mb-6"
           >
-            Notre savoir-faire
+            {t("title")}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -26,7 +29,7 @@ export function ServicesPreview() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-lg text-warm-brown"
           >
-            Des solutions pensées pour donner une nouvelle dimension à vos espaces.
+            {t("description")}
           </motion.p>
         </div>
 
@@ -58,7 +61,7 @@ export function ServicesPreview() {
 
         <div className="text-center">
           <Button asChild>
-            <Link href="/services">Découvrir nos services</Link>
+            <Link href="/services">{t("cta")}</Link>
           </Button>
         </div>
       </div>

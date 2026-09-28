@@ -1,0 +1,22 @@
+{
+  "project-01": {
+    "title": "Contemporary Apartment",
+    "description": "A contemporary interior combining natural wood, architectural lighting, warm materials, and custom furniture.",
+    "location": "Algiers"
+  },
+  "project-02": {
+    "title": "Modern Residence",
+    "description": "A renovation designed around bright spaces, contemporary lines, and elegant finishes.",
+    "location": "Algiers"
+  },
+  "project-03": {
+    "title": "Commercial Space",
+    "description": "A professional space designed to combine visual identity, functionality, and customer experience.",
+    "location": "Algiers"
+  },
+  "project-04": {
+    "title": "Interior Transformation",
+    "description": "Complete transformation of an interior working with spaces, materials, light, and finishes.",
+    "location": "Algiers"
+  }
+}

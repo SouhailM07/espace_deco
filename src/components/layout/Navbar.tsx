@@ -1,18 +1,22 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Image from "next/image";
+import { Link, usePathname } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteData } from "@/data/site";
 import { cn } from "@/lib/utils";
 import { RiMenuLine, RiCloseLine } from "react-icons/ri";
+import { TranslationBtn } from "@/components/ui/TranslationBtn";
 
 export function Navbar() {
+  const t = useTranslations('navigation');
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  // Simple check for home page across locales
+  const isHome = pathname === "/" || pathname === "/fr" || pathname === "/en" || pathname === "/ar";
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -23,7 +27,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent scroll when mobile menu is open
   React.useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -36,29 +39,42 @@ export function Navbar() {
     ? isScrolled || isMobileMenuOpen ? "bg-warm-ivory shadow-sm text-deep-brown" : "bg-transparent text-white"
     : "bg-warm-ivory shadow-sm text-deep-brown";
 
+  const navLinks = [
+    { label: t('home'), href: "/" },
+    { label: t('projects'), href: "/realisations" },
+    { label: t('services'), href: "/services" },
+    { label: t('about'), href: "/a-propos" },
+    { label: t('contact'), href: "/contact" },
+  ];
+
   return (
     <>
       <header className={cn("fixed top-0 left-0 right-0 z-50 transition-all duration-300", navBackground)}>
-        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/" className="font-serif text-2xl tracking-wide relative z-50" onClick={() => setIsMobileMenuOpen(false)}>
-            {siteData.name}
+        <div className="container mx-auto px-6 h-20 flex items-center justify-between relative">
+          <Link href="/" className="relative z-50 flex items-center" onClick={() => setIsMobileMenuOpen(false)}>
+            <Image src="/images/logo-clean.jpg" alt={siteData.name} width={56} height={56} className="object-cover rounded-full shadow-md" />
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex gap-8 items-center">
-            {siteData.navigation.map((item) => (
+          {/* Desktop Nav - Centered */}
+          <nav className="hidden md:flex gap-8 items-center absolute left-1/2 -translate-x-1/2">
+            {navLinks.map((item) => (
               <Link 
                 key={item.href} 
-                href={item.href}
+                href={item.href as any}
                 className={cn(
                   "text-sm font-medium tracking-wide transition-colors hover:text-champagne",
-                  pathname === item.href && "text-champagne"
+                  pathname.includes(item.href) && item.href !== "/" ? "text-champagne" : ""
                 )}
               >
                 {item.label}
               </Link>
             ))}
           </nav>
+            
+          {/* Language Switcher - Right aligned */}
+          <div className="hidden md:flex gap-4 items-center relative z-50 text-current">
+            <TranslationBtn />
+          </div>
 
           {/* Mobile Menu Toggle */}
           <button 
@@ -78,10 +94,10 @@ export function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-warm-ivory text-deep-brown pt-24 px-6 flex flex-col"
+            className="fixed inset-0 z-40 bg-warm-ivory text-deep-brown pt-24 px-6 flex flex-col overflow-y-auto"
           >
-            <nav className="flex flex-col gap-8 mt-10">
-              {siteData.navigation.map((item, i) => (
+            <nav className="flex flex-col gap-6 mt-6">
+              {navLinks.map((item, i) => (
                 <motion.div
                   key={item.href}
                   initial={{ opacity: 0, x: -20 }}
@@ -89,11 +105,10 @@ export function Navbar() {
                   transition={{ delay: i * 0.1 }}
                 >
                   <Link 
-                    href={item.href}
+                    href={item.href as any}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={cn(
-                      "font-serif text-4xl hover:text-champagne transition-colors",
-                      pathname === item.href && "text-champagne"
+                      "font-serif text-2xl sm:text-3xl hover:text-champagne transition-colors"
                     )}
                   >
                     {item.label}
@@ -101,6 +116,11 @@ export function Navbar() {
                 </motion.div>
               ))}
             </nav>
+            
+            {/* Mobile Lang Switch */}
+            <div className="flex w-full mt-8 text-deep-brown">
+              <TranslationBtn variant="inline" />
+            </div>
             
             <div className="mt-auto mb-10 pb-10">
               <p className="text-sm text-taupe mb-2">Prendre contact</p>

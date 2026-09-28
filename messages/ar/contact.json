@@ -1,0 +1,27 @@
+{
+  "title": "لنتحدث عن مشروعك.",
+  "subtitle": "هل لديك شقة، منزل أو مساحة تجارية لتحويلها؟ دعنا نناقش مشروعك.",
+  "contact_info": "معلومات الاتصال",
+  "phone": "الهاتف",
+  "whatsapp": "واتساب",
+  "whatsapp_text": "أرسل رسالة",
+  "email": "البريد الإلكتروني",
+  "location": "منطقة الخدمة",
+  "form": {
+    "name": "الاسم الكامل",
+    "phone": "الهاتف",
+    "project_type": "نوع المشروع",
+    "project_types": {
+      "apartment": "شقة",
+      "house": "منزل",
+      "commercial": "تجاري",
+      "office": "مكتب",
+      "renovation": "تجديد",
+      "other": "أخرى"
+    },
+    "project_location": "موقع المشروع",
+    "message": "تفاصيل المشروع",
+    "message_placeholder": "صف توقعاتك باختصار...",
+    "submit": "إرسال الطلب (عبر الواتساب)"
+  }
+}

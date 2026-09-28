@@ -3,8 +3,10 @@
 import * as React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export function BeforeAfter() {
+  const t = useTranslations("before_after");
   const [sliderPosition, setSliderPosition] = React.useState(50);
   const containerRef = React.useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = React.useState(false);
@@ -47,7 +49,7 @@ export function BeforeAfter() {
             transition={{ duration: 0.6 }}
             className="font-serif text-4xl md:text-5xl text-deep-brown mb-6"
           >
-            Avant. Après. Transformation.
+            {t("title")}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -56,7 +58,7 @@ export function BeforeAfter() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-lg text-warm-brown"
           >
-            Découvrez concrètement la transformation apportée à chaque espace.
+            {t("description")}
           </motion.p>
         </div>
 

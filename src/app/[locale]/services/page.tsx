@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { services } from "@/data/services";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { Button } from "@/components/ui/Button";
 
 export default function ServicesPage() {
@@ -21,7 +21,7 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-serif text-5xl md:text-6xl text-deep-brown mb-8"
+            className="font-serif text-4xl md:text-5xl lg:text-6xl text-deep-brown mb-8"
           >
             Notre savoir-faire
           </motion.h1>
@@ -65,9 +65,9 @@ export default function ServicesPage() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-walnut text-warm-ivory rounded-sm p-12 md:p-20 text-center"
+          className="bg-walnut text-warm-ivory rounded-sm p-6 sm:p-8 md:p-12 lg:p-20 text-center mx-auto"
         >
-          <h2 className="font-serif text-3xl md:text-4xl mb-6">Besoin d&apos;un accompagnement sur mesure ?</h2>
+          <h2 className="font-serif text-3xl md:text-4xl mb-6 text-balance hyphens-auto">Besoin d&apos;un accompagnement sur mesure ?</h2>
           <p className="text-taupe max-w-2xl mx-auto mb-10 text-lg">
             Chaque projet est unique. Discutons ensemble de vos envies et des possibilités offertes par votre espace.
           </p>

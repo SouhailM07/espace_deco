@@ -1,0 +1,12 @@
+{
+  "subtitle": "PORTFOLIO",
+  "title": "Nos réalisations",
+  "description": "Une sélection de projets résidentiels et commerciaux réalisés avec une attention particulière aux volumes, aux matériaux et aux finitions.",
+  "categories": {
+    "all": "Tous",
+    "residential": "Résidentiel",
+    "commercial": "Commercial",
+    "renovation": "Rénovation",
+    "layout": "Aménagement"
+  }
+}

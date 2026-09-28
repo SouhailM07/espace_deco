@@ -2,8 +2,11 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export function Intro() {
+  const t = useTranslations('intro');
+
   return (
     <section className="py-24 md:py-32 bg-warm-ivory">
       <div className="container mx-auto px-6">
@@ -15,13 +18,12 @@ export function Intro() {
             transition={{ duration: 0.8 }}
             className="max-w-xl"
           >
-            <p className="uppercase tracking-[0.2em] text-sm text-taupe mb-6 font-medium">ESPACE DECO</p>
+            <p className="uppercase tracking-[0.2em] text-sm text-taupe mb-6 font-medium">{t('eyebrow')}</p>
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-deep-brown leading-tight mb-8">
-              Des espaces pensés dans chaque détail.
+              {t('title')}
             </h2>
             <p className="text-lg text-warm-brown leading-relaxed mb-8">
-              Espace Deco imagine et transforme des espaces résidentiels et professionnels en associant esthétique, fonctionnalité, matériaux et lumière. 
-              Chaque projet est une réponse unique aux besoins de ceux qui y vivent ou y travaillent.
+              {t('description')}
             </p>
             <div className="w-12 h-px bg-champagne"></div>
           </motion.div>

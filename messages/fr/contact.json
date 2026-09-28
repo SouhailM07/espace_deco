@@ -1,0 +1,27 @@
+{
+  "title": "Parlons de votre projet.",
+  "subtitle": "Vous avez un appartement, une maison ou un espace commercial à transformer ? Échangeons autour de votre projet.",
+  "contact_info": "Coordonnées",
+  "phone": "Téléphone",
+  "whatsapp": "WhatsApp",
+  "whatsapp_text": "Envoyer un message",
+  "email": "Email",
+  "location": "Zone d'intervention",
+  "form": {
+    "name": "Nom & Prénom",
+    "phone": "Téléphone",
+    "project_type": "Type de projet",
+    "project_types": {
+      "apartment": "Appartement",
+      "house": "Maison",
+      "commercial": "Commerce",
+      "office": "Bureau",
+      "renovation": "Rénovation",
+      "other": "Autre"
+    },
+    "project_location": "Lieu du projet",
+    "message": "Détails du projet",
+    "message_placeholder": "Décrivez brièvement vos attentes...",
+    "submit": "Envoyer ma demande (via WhatsApp)"
+  }
+}

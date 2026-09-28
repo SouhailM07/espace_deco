@@ -1,0 +1,22 @@
+{
+  "project-01": {
+    "title": "Appartement contemporain",
+    "description": "Un intérieur contemporain mêlant bois naturel, éclairage architectural, matières chaleureuses et mobilier sur mesure.",
+    "location": "Alger"
+  },
+  "project-02": {
+    "title": "Résidence moderne",
+    "description": "Une rénovation pensée autour de volumes lumineux, de lignes contemporaines et de finitions élégantes.",
+    "location": "Alger"
+  },
+  "project-03": {
+    "title": "Espace commercial",
+    "description": "Un espace professionnel conçu pour associer identité visuelle, fonctionnalité et expérience client.",
+    "location": "Alger"
+  },
+  "project-04": {
+    "title": "Transformation intérieure",
+    "description": "Transformation complète d'un intérieur avec travail sur les volumes, les matériaux, la lumière et les finitions.",
+    "location": "Alger"
+  }
+}

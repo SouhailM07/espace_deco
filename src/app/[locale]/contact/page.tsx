@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 import * as React from "react";
 import { motion } from "framer-motion";
 import { siteData } from "@/data/site";
@@ -7,6 +9,7 @@ import { Button } from "@/components/ui/Button";
 import { RiWhatsappLine, RiPhoneLine, RiMapPinLine, RiMailLine } from "react-icons/ri";
 
 export default function ContactPage() {
+  const t = useTranslations("contact");
   const [formData, setFormData] = React.useState({
     name: "",
     phone: "",
@@ -37,9 +40,9 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-serif text-5xl md:text-6xl text-deep-brown mb-8"
+            className="font-serif text-4xl md:text-5xl lg:text-6xl text-deep-brown mb-8"
           >
-            Parlons de votre projet.
+            {t('title')}
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -47,7 +50,7 @@ export default function ContactPage() {
             transition={{ delay: 0.2 }}
             className="text-lg md:text-xl text-warm-brown max-w-2xl leading-relaxed"
           >
-            Vous avez un appartement, une maison ou un espace commercial à transformer ? Échangeons autour de votre projet.
+            {t('subtitle')}
           </motion.p>
         </header>
 
@@ -58,14 +61,14 @@ export default function ContactPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <div className="bg-soft-cream p-10 md:p-12 rounded-sm mb-10">
-              <h3 className="font-serif text-2xl text-deep-brown mb-8">Coordonnées</h3>
+            <div className="bg-soft-cream p-6 md:p-12 rounded-sm mb-10">
+              <h3 className="font-serif text-2xl text-deep-brown mb-8">{t('contact_info')}</h3>
               
               <div className="space-y-8">
                 <div className="flex items-start gap-4 text-warm-brown">
                   <RiPhoneLine size={24} className="text-champagne shrink-0 mt-1" />
                   <div>
-                    <p className="font-medium text-deep-brown mb-1">Téléphone</p>
+                    <p className="font-medium text-deep-brown mb-1">{t('phone')}</p>
                     <a href={`tel:${siteData.contact.phone.replace(/\s+/g, '')}`} className="hover:text-champagne transition-colors">
                       {siteData.contact.phone}
                     </a>
@@ -75,9 +78,9 @@ export default function ContactPage() {
                 <div className="flex items-start gap-4 text-warm-brown">
                   <RiWhatsappLine size={24} className="text-champagne shrink-0 mt-1" />
                   <div>
-                    <p className="font-medium text-deep-brown mb-1">WhatsApp</p>
+                    <p className="font-medium text-deep-brown mb-1">{t('whatsapp')}</p>
                     <a href={`https://wa.me/${siteData.contact.whatsapp}`} target="_blank" rel="noopener noreferrer" className="hover:text-champagne transition-colors">
-                      Envoyer un message
+                      {t('whatsapp_text')}
                     </a>
                   </div>
                 </div>
@@ -85,7 +88,7 @@ export default function ContactPage() {
                 <div className="flex items-start gap-4 text-warm-brown">
                   <RiMailLine size={24} className="text-champagne shrink-0 mt-1" />
                   <div>
-                    <p className="font-medium text-deep-brown mb-1">Email</p>
+                    <p className="font-medium text-deep-brown mb-1">{t('email')}</p>
                     <a href={`mailto:${siteData.contact.email}`} className="hover:text-champagne transition-colors">
                       {siteData.contact.email}
                     </a>
@@ -95,7 +98,7 @@ export default function ContactPage() {
                 <div className="flex items-start gap-4 text-warm-brown">
                   <RiMapPinLine size={24} className="text-champagne shrink-0 mt-1" />
                   <div>
-                    <p className="font-medium text-deep-brown mb-1">Zone d&apos;intervention</p>
+                    <p className="font-medium text-deep-brown mb-1">{t('location')}</p>
                     <p>{siteData.contact.location}</p>
                   </div>
                 </div>
@@ -112,7 +115,7 @@ export default function ContactPage() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium text-deep-brown">Nom & Prénom</label>
+                  <label htmlFor="name" className="text-sm font-medium text-deep-brown">{t('form.name')}</label>
                   <input 
                     type="text" 
                     id="name" 
@@ -123,7 +126,7 @@ export default function ContactPage() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="phone" className="text-sm font-medium text-deep-brown">Téléphone</label>
+                  <label htmlFor="phone" className="text-sm font-medium text-deep-brown">{t('form.phone')}</label>
                   <input 
                     type="tel" 
                     id="phone" 
@@ -137,23 +140,23 @@ export default function ContactPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label htmlFor="projectType" className="text-sm font-medium text-deep-brown">Type de projet</label>
+                  <label htmlFor="projectType" className="text-sm font-medium text-deep-brown">{t('form.project_type')}</label>
                   <select 
                     id="projectType" 
                     value={formData.projectType}
                     onChange={(e) => setFormData({...formData, projectType: e.target.value})}
                     className="w-full h-12 px-4 bg-white/50 border border-walnut/20 rounded-sm focus:outline-none focus:border-champagne focus:ring-1 focus:ring-champagne transition-all"
                   >
-                    <option>Appartement</option>
-                    <option>Maison</option>
-                    <option>Commerce</option>
-                    <option>Bureau</option>
-                    <option>Rénovation</option>
-                    <option>Autre</option>
+                    <option value={t('form.project_types.apartment')}>{t('form.project_types.apartment')}</option>
+                    <option value={t('form.project_types.house')}>{t('form.project_types.house')}</option>
+                    <option value={t('form.project_types.commercial')}>{t('form.project_types.commercial')}</option>
+                    <option value={t('form.project_types.office')}>{t('form.project_types.office')}</option>
+                    <option value={t('form.project_types.renovation')}>{t('form.project_types.renovation')}</option>
+                    <option value={t('form.project_types.other')}>{t('form.project_types.other')}</option>
                   </select>
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="location" className="text-sm font-medium text-deep-brown">Lieu du projet</label>
+                  <label htmlFor="location" className="text-sm font-medium text-deep-brown">{t('form.project_location')}</label>
                   <input 
                     type="text" 
                     id="location" 
@@ -166,7 +169,7 @@ export default function ContactPage() {
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium text-deep-brown">Détails du projet</label>
+                <label htmlFor="message" className="text-sm font-medium text-deep-brown">{t('form.message')}</label>
                 <textarea 
                   id="message" 
                   rows={5}
@@ -174,12 +177,12 @@ export default function ContactPage() {
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
                   className="w-full p-4 bg-white/50 border border-walnut/20 rounded-sm focus:outline-none focus:border-champagne focus:ring-1 focus:ring-champagne transition-all resize-none"
-                  placeholder="Décrivez brièvement vos attentes..."
+                  placeholder={t('form.message_placeholder')}
                 ></textarea>
               </div>
 
               <Button type="submit" className="w-full md:w-auto mt-4">
-                Envoyer ma demande (via WhatsApp)
+                {t('form.submit')}
               </Button>
             </form>
           </motion.div>

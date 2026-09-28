@@ -1,0 +1,12 @@
+{
+  "subtitle": "PORTFOLIO",
+  "title": "Our Projects",
+  "description": "A selection of residential and commercial projects carried out with particular attention to space, materials, and finishes.",
+  "categories": {
+    "all": "All",
+    "residential": "Residential",
+    "commercial": "Commercial",
+    "renovation": "Renovation",
+    "layout": "Layout"
+  }
+}

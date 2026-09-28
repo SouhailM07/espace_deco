@@ -2,17 +2,20 @@
 
 import * as React from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { motion, AnimatePresence } from "framer-motion";
 import { getAllProjects } from "@/data/projects";
+import { useTranslations } from "next-intl";
 
-const categories = ["Tous", "Résidentiel", "Commercial", "Rénovation", "Aménagement"];
+const categoryKeys = ["all", "residential", "commercial", "renovation", "layout"];
 
 export default function Portfolio() {
-  const [activeCategory, setActiveCategory] = React.useState("Tous");
+  const t = useTranslations("projects_page");
+  const td = useTranslations("projects_data");
+  const [activeCategory, setActiveCategory] = React.useState("all");
   const allProjects = getAllProjects();
   
-  const filteredProjects = activeCategory === "Tous" 
+  const filteredProjects = activeCategory === "all" 
     ? allProjects 
     : allProjects.filter(p => p.category === activeCategory);
 
@@ -25,15 +28,15 @@ export default function Portfolio() {
             animate={{ opacity: 1, y: 0 }}
             className="uppercase tracking-[0.2em] text-sm text-taupe mb-6 font-medium"
           >
-            PORTFOLIO
+            {t("subtitle")}
           </motion.p>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-serif text-5xl md:text-6xl text-deep-brown mb-8"
+            className="font-serif text-4xl md:text-5xl lg:text-6xl text-deep-brown mb-8"
           >
-            Nos réalisations
+            {t("title")}
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -41,7 +44,7 @@ export default function Portfolio() {
             transition={{ delay: 0.2 }}
             className="text-lg md:text-xl text-warm-brown max-w-2xl"
           >
-            Une sélection de projets résidentiels et commerciaux réalisés avec une attention particulière aux volumes, aux matériaux et aux finitions.
+            {t("description")}
           </motion.p>
         </header>
 
@@ -52,7 +55,7 @@ export default function Portfolio() {
           transition={{ delay: 0.3 }}
           className="flex flex-wrap gap-4 mb-16"
         >
-          {categories.map((category) => (
+          {categoryKeys.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
@@ -62,7 +65,7 @@ export default function Portfolio() {
                   : "bg-soft-cream text-warm-brown hover:bg-taupe hover:text-white"
               }`}
             >
-              {category}
+              {t(`categories.${category}`)}
             </button>
           ))}
         </motion.div>
@@ -84,7 +87,7 @@ export default function Portfolio() {
                   <div className="overflow-hidden relative aspect-[3/4] mb-6">
                     <Image
                       src={project.coverImage}
-                      alt={project.title}
+                      alt={td(`${project.id}.title`)}
                       fill
                       className="object-cover transition-transform duration-1000 group-hover:scale-105"
                     />
@@ -93,15 +96,15 @@ export default function Portfolio() {
                   <div>
                     <div className="flex items-center gap-3 mb-2">
                       <p className="text-xs font-semibold uppercase tracking-wider text-taupe">
-                        {project.category}
+                        {t(`categories.${project.category}`)}
                       </p>
                       <span className="w-1 h-1 rounded-full bg-champagne"></span>
                       <p className="text-xs font-medium text-warm-brown">
-                        {project.location}
+                        {td(`${project.id}.location`)}
                       </p>
                     </div>
                     <h3 className="font-serif text-3xl text-deep-brown group-hover:text-champagne transition-colors">
-                      {project.title}
+                      {td(`${project.id}.title`)}
                     </h3>
                   </div>
                 </Link>

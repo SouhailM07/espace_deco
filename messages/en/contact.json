@@ -1,0 +1,27 @@
+{
+  "title": "Let's talk about your project.",
+  "subtitle": "You have an apartment, a house or a commercial space to transform? Let's discuss your project.",
+  "contact_info": "Contact Information",
+  "phone": "Phone",
+  "whatsapp": "WhatsApp",
+  "whatsapp_text": "Send a message",
+  "email": "Email",
+  "location": "Service Area",
+  "form": {
+    "name": "Full Name",
+    "phone": "Phone",
+    "project_type": "Project Type",
+    "project_types": {
+      "apartment": "Apartment",
+      "house": "House",
+      "commercial": "Commercial",
+      "office": "Office",
+      "renovation": "Renovation",
+      "other": "Other"
+    },
+    "project_location": "Project Location",
+    "message": "Project Details",
+    "message_placeholder": "Briefly describe your expectations...",
+    "submit": "Send request (via WhatsApp)"
+  }
+}

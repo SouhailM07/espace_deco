@@ -1,0 +1,16 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "projects": "Portfolio",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "eyebrow": "ESPACE DECO",
+    "title": "The art of transforming your spaces.",
+    "description": "Interior design, renovation, and styling thought out to create elegant, functional, and unique spaces.",
+    "cta_primary": "Discover our work",
+    "cta_secondary": "Discuss your project"
+  }
+}

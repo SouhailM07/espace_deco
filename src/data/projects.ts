@@ -14,7 +14,7 @@ export const projects: Project[] = [
     id: "project-01",
     slug: "appartement-contemporain-alger",
     title: "Appartement contemporain",
-    category: "Résidentiel",
+    category: "residential",
     location: "Alger",
     description: "Un intérieur contemporain mêlant bois naturel, éclairage architectural, matières chaleureuses et mobilier sur mesure.",
     coverImage: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
@@ -28,7 +28,7 @@ export const projects: Project[] = [
     id: "project-02",
     slug: "residence-moderne",
     title: "Résidence moderne",
-    category: "Résidentiel",
+    category: "residential",
     location: "Alger",
     description: "Une rénovation pensée autour de volumes lumineux, de lignes contemporaines et de finitions élégantes.",
     coverImage: "https://images.unsplash.com/photo-1600607687920-4e2a09c15faa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     id: "project-03",
     slug: "espace-commercial",
     title: "Espace commercial",
-    category: "Commercial",
+    category: "commercial",
     location: "Alger",
     description: "Un espace professionnel conçu pour associer identité visuelle, fonctionnalité et expérience client.",
     coverImage: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
@@ -54,7 +54,7 @@ export const projects: Project[] = [
     id: "project-04",
     slug: "renovation-interieure",
     title: "Transformation intérieure",
-    category: "Rénovation",
+    category: "renovation",
     location: "Alger",
     description: "Transformation complète d'un intérieur avec travail sur les volumes, les matériaux, la lumière et les finitions.",
     coverImage: "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
@@ -68,4 +68,4 @@ export const projects: Project[] = [
 export const getFeaturedProjects = () => projects.slice(0, 4);
 export const getAllProjects = () => projects;
 export const getProjectBySlug = (slug: string) => projects.find((p) => p.slug === slug);
-export const getProjectsByCategory = (category: string) => category === "Tous" ? projects : projects.filter((p) => p.category === category);
+export const getProjectsByCategory = (category: string) => category === "all" ? projects : projects.filter((p) => p.category === category);

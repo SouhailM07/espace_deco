@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { siteData } from "@/data/site";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { Button } from "@/components/ui/Button";
 
 export default function AboutPage() {
@@ -22,7 +22,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-serif text-5xl md:text-6xl text-deep-brown mb-8 leading-tight"
+            className="font-serif text-4xl md:text-5xl lg:text-6xl text-deep-brown mb-8 leading-tight"
           >
             Donner une nouvelle dimension à vos espaces.
           </motion.h1>
@@ -71,9 +71,9 @@ export default function AboutPage() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-soft-cream rounded-sm p-12 md:p-20 text-center"
+          className="bg-soft-cream rounded-sm p-6 sm:p-8 md:p-12 lg:p-20 text-center mx-auto"
         >
-          <h2 className="font-serif text-3xl md:text-4xl mb-6 text-deep-brown">Confiez-nous votre intérieur.</h2>
+          <h2 className="font-serif text-3xl md:text-4xl mb-6 text-deep-brown text-balance hyphens-auto">Confiez-nous votre intérieur.</h2>
           <Button asChild size="lg" className="mt-4">
             <Link href="/contact">Parler de votre projet</Link>
           </Button>

@@ -2,8 +2,11 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export function DesignPhilosophy() {
+  const t = useTranslations("design_philosophy");
+
   return (
     <section className="py-24 md:py-32 bg-deep-brown text-warm-ivory overflow-hidden">
       <div className="container mx-auto px-6">
@@ -31,13 +34,13 @@ export function DesignPhilosophy() {
             className="order-1 lg:order-2 max-w-xl lg:pl-12"
           >
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-8 leading-tight">
-              Créer plus qu&apos;un intérieur.
+              {t("title")}
             </h2>
             <p className="text-lg text-taupe leading-relaxed mb-10">
-              Chaque projet commence par une compréhension de l&apos;espace, de la lumière et des besoins de ses occupants. L&apos;objectif est de créer un environnement cohérent, élégant et durable.
+              {t("paragraph1")}
             </p>
             <p className="text-lg text-taupe leading-relaxed">
-              Nous privilégions les matières authentiques, l&apos;équilibre des volumes et l&apos;éclairage soigné pour concevoir des intérieurs qui traversent le temps.
+              {t("paragraph2")}
             </p>
           </motion.div>
         </div>
